@@ -243,7 +243,7 @@ namespace Needle.RemoteHierarchy
                 };
                 
                 if (captureComponents)
-                    info.components = go.GetComponents(typeof(Component)).Where(x => !(x is Transform)).Select(ComponentInfo.FromComponent).ToList();
+                    info.components = go.GetComponents(typeof(Component)).Where(x => x != null && !(x is Transform)).Select(ComponentInfo.FromComponent).ToList();
                 
                 instanceIdMap.Add(info.instanceId, (info, go));
 
